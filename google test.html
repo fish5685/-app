@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>減脂記錄器 - Ultimate Tag & Sync Edition</title>
+    <title>減脂記錄器 - Layout Polished</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -164,11 +164,13 @@
                 </div>
             </div>
 
+            <!-- 排程規劃捷徑 -->
             <button onclick="switchTab('schedule')" class="w-full py-1.5 mb-4 rounded-lg bg-indigo-900/30 border border-indigo-500/30 text-indigo-400 font-bold text-[10px] flex justify-between items-center px-3 hover:bg-indigo-900/50 transition">
                 <span><i class="fa-solid fa-link mr-1"></i> 排程系統</span>
                 <span>設定循環計畫 <i class="fa-solid fa-chevron-right ml-1"></i></span>
             </button>
 
+            <!-- 單位與當日備註 -->
             <div id="unit-toggle-bar" class="flex justify-between items-center mb-3 bg-slate-800/80 rounded-xl p-2 border border-slate-700">
                 <span class="text-slate-400 text-xs font-bold pl-2">當前重量單位 <span class="text-[9px] font-normal">(不影響體重)</span></span>
                 <div class="flex gap-1 bg-slate-900 rounded-lg p-1">
@@ -219,7 +221,6 @@
                 <button id="tab-btn-tdee" onclick="switchNutriTab('tdee')" class="tab-btn flex-1 py-1.5 rounded-md font-bold text-xs transition">TDEE 引擎</button>
             </div>
 
-            <!-- Tab 1: 飲食紀錄日誌 -->
             <div id="nutri-tab-log">
                 <div class="bg-slate-800/80 border border-slate-700 rounded-2xl p-4 mb-5 shadow-lg transition-colors duration-300" id="diet-summary-card">
                     <h3 class="text-white font-bold text-sm mb-3">當日熱量與營養素進度</h3>
@@ -237,9 +238,8 @@
                 <div class="flex justify-between items-center mb-3">
                     <h3 class="text-white font-bold text-sm">餐點紀錄</h3>
                     <div class="flex items-center gap-2">
-                        <!-- 精緻的 Tag 選單 (從常用新增) -->
                         <div class="relative inline-flex items-center">
-                            <select id="template-meal-select" class="bg-slate-800 text-sky-400 text-[10px] pl-3 pr-6 py-1.5 rounded-full outline-none border border-slate-600 font-bold appearance-none cursor-pointer max-w-[130px] truncate shadow-sm">
+                            <select id="template-meal-select" class="bg-slate-800 text-sky-400 text-[10px] pl-3 pr-6 py-1.5 rounded-full outline-none border border-slate-600 font-bold appearance-none cursor-pointer max-w-[130px] truncate shadow-sm [text-align-last:center]">
                                 <option value="">📂 從常用新增</option>
                             </select>
                             <i class="fa-solid fa-caret-down absolute right-2 text-sky-400 text-[10px] pointer-events-none"></i>
@@ -309,13 +309,13 @@
             <h2 class="text-white font-bold text-2xl mb-4">Correlation Lab</h2>
             
             <div class="flex justify-between items-center mb-4">
-                <button onclick="changeTrendOffset(1)" class="w-8 h-8 rounded-full bg-slate-800 text-slate-400 flex items-center justify-center hover:text-white transition"><i class="fa-solid fa-chevron-left"></i></button>
+                <button onclick="changeTrendOffset(-1)" class="w-8 h-8 rounded-full bg-slate-800 text-slate-400 flex items-center justify-center hover:text-white transition"><i class="fa-solid fa-chevron-left"></i></button>
                 <div class="flex bg-slate-800 rounded-lg p-1 w-48">
                     <button onclick="setTrendRange('7d')" id="trend-flt-7d" class="text-sky-400 flex-1 py-1 rounded-md font-bold text-[10px] transition">7 天</button>
                     <button onclick="setTrendRange('30d')" id="trend-flt-30d" class="hover:text-white text-slate-400 flex-1 py-1 rounded-md font-bold text-[10px] transition">30 天</button>
                     <button onclick="setTrendRange('all')" id="trend-flt-all" class="hover:text-white text-slate-400 flex-1 py-1 rounded-md font-bold text-[10px] transition">全部</button>
                 </div>
-                <button onclick="changeTrendOffset(-1)" class="w-8 h-8 rounded-full bg-slate-800 text-slate-400 flex items-center justify-center hover:text-white transition"><i class="fa-solid fa-chevron-right"></i></button>
+                <button onclick="changeTrendOffset(1)" class="w-8 h-8 rounded-full bg-slate-800 text-slate-400 flex items-center justify-center hover:text-white transition"><i class="fa-solid fa-chevron-right"></i></button>
             </div>
             
             <p class="text-center text-[10px] text-sky-400 font-bold mb-4" id="trend-date-label"></p>
@@ -341,18 +341,18 @@
 
             <!-- 時光機與篩選器 -->
             <div class="flex justify-between items-center mb-4">
-                <button onclick="changeHistOffset(1)" class="w-8 h-8 rounded-full bg-slate-800 text-slate-400 flex items-center justify-center hover:text-white transition"><i class="fa-solid fa-chevron-left"></i></button>
+                <button onclick="changeHistOffset(-1)" class="w-8 h-8 rounded-full bg-slate-800 text-slate-400 flex items-center justify-center hover:text-white transition"><i class="fa-solid fa-chevron-left"></i></button>
                 <div class="flex gap-2 text-xs font-bold text-slate-400" id="hist-time-filters">
                     <button onclick="setHistTimeFilter('week')" id="hist-flt-week" class="text-sky-400 transition">當週</button>
                     <button onclick="setHistTimeFilter('month')" id="hist-flt-month" class="hover:text-white transition">當月</button>
                     <button onclick="setHistTimeFilter('all')" id="hist-flt-all" class="hover:text-white transition">全部</button>
                 </div>
-                <button onclick="changeHistOffset(-1)" class="w-8 h-8 rounded-full bg-slate-800 text-slate-400 flex items-center justify-center hover:text-white transition"><i class="fa-solid fa-chevron-right"></i></button>
+                <button onclick="changeHistOffset(1)" class="w-8 h-8 rounded-full bg-slate-800 text-slate-400 flex items-center justify-center hover:text-white transition"><i class="fa-solid fa-chevron-right"></i></button>
             </div>
 
             <p class="text-center text-[10px] text-sky-400 font-bold mb-2" id="hist-date-label"></p>
             
-            <!-- 平均數據區塊 -->
+            <!-- 平均數據區塊 (加入對比功能) -->
             <div class="bg-slate-800/80 border border-slate-700 rounded-xl p-3 mb-4 flex justify-between items-center" id="hist-avg-display">
                 <span class="text-slate-400 text-xs font-bold" id="hist-avg-title">此區間平均體重</span>
                 <span class="text-white font-black text-lg flex items-center" id="hist-avg-value">-- kg</span>
@@ -692,7 +692,7 @@
                             <button class="absolute top-2 right-2 text-rose-500/70 hover:text-rose-500 p-1 z-10" onclick="deleteMeal(${idx})"><i class="fa-solid fa-xmark text-sm"></i></button>
                             <div class="flex gap-2 items-center mb-2 pr-6">
                                 <div class="relative inline-flex items-center">
-                                    <select oninput="handleUpdateMeal(${idx}, 'type', this.value)" class="bg-slate-900 text-sky-400 text-[10px] pl-3 pr-5 py-1 rounded-full border border-slate-600 font-bold appearance-none cursor-pointer shadow-sm outline-none">
+                                    <select oninput="handleUpdateMeal(${idx}, 'type', this.value)" class="bg-slate-900 text-sky-400 text-[10px] pl-3 pr-5 py-1 rounded-full border border-slate-600 font-bold appearance-none cursor-pointer shadow-sm outline-none [text-align-last:center]">
                                         ${typeOptions}
                                     </select>
                                     <i class="fa-solid fa-caret-down absolute right-2 text-sky-400 text-[8px] pointer-events-none"></i>
@@ -713,12 +713,12 @@
                             <button class="absolute top-3 right-3 text-rose-500/70 hover:text-rose-500 p-2 z-10" onclick="deleteMeal(${idx})"><i class="fa-solid fa-trash-can text-lg"></i></button>
                             <div class="flex justify-between items-center mb-3 pr-8">
                                 <div class="relative inline-flex items-center">
-                                    <select oninput="handleUpdateMeal(${idx}, 'type', this.value)" class="bg-slate-900 text-sky-400 text-[10px] pl-3 pr-5 py-1 rounded-full border border-slate-600 font-bold appearance-none cursor-pointer shadow-sm outline-none">
+                                    <select oninput="handleUpdateMeal(${idx}, 'type', this.value)" class="bg-slate-900 text-sky-400 text-[10px] pl-3 pr-5 py-1 rounded-full border border-slate-600 font-bold appearance-none cursor-pointer shadow-sm outline-none [text-align-last:center]">
                                         ${typeOptions}
                                     </select>
                                     <i class="fa-solid fa-caret-down absolute right-2 text-sky-400 text-[8px] pointer-events-none"></i>
                                 </div>
-                                <button onclick="saveAsFrequent(${idx})" class="text-[10px] bg-slate-700 px-2 py-1 rounded text-slate-300 hover:text-white transition"><i class="fa-solid fa-star text-amber-500 mr-1"></i>儲存為常用</button>
+                                <button onclick="saveAsFrequent(${idx})" class="text-[10px] bg-slate-700 px-3 py-1.5 rounded-full text-slate-300 hover:text-white transition font-bold"><i class="fa-solid fa-star text-amber-500 mr-1"></i>儲存為常用</button>
                             </div>
                             <div class="flex gap-3 mb-3">
                                 <div class="w-16 h-16 bg-slate-900 rounded-lg flex items-center justify-center border border-dashed border-slate-600 relative overflow-hidden">${imgContent}</div>
@@ -753,7 +753,7 @@
         } else {
             state.history.push({
                 date: dateStr, bodyWeight: parseFloat(document.getElementById('quick-weight').value) || 74.5, bodyFat: parseFloat(document.getElementById('quick-fat').value) || 16.2,
-                protein: sumP, carbs: sumC, fat: sumF, kcal: sumKcal, volume: 0, isRest: false, details:[], meals: JSON.parse(JSON.stringify(dailyMeals)), note: ''
+                protein: sumP, carbs: sumC, fat: sumF, kcal: sumKcal, volume: 0, isRest: true, details:[], meals: JSON.parse(JSON.stringify(dailyMeals)), note: ''
             });
             openAppConfirm(`已結算並建立 ${dateStr} 的飲食紀錄！`, () => { if(chartInstance) updateChartData(); switchTab('history'); setHistTab('diet'); });
         }
@@ -859,7 +859,7 @@
                         <span class="text-[10px] text-slate-500 w-3">次</span>
                         
                         <div class="relative inline-flex items-center ml-1 flex-1">
-                            <select oninput="handleUpdateTag(${exIdx}, ${sIdx}, this.value)" class="w-full bg-slate-900 text-[10px] text-slate-400 border border-slate-700 rounded p-1 pl-2 pr-4 appearance-none outline-none">
+                            <select oninput="handleUpdateTag(${exIdx}, ${sIdx}, this.value)" class="w-full bg-slate-900 text-[10px] text-slate-400 border border-slate-700 rounded p-1 pl-2 pr-4 appearance-none outline-none text-center[text-align-last:center]">
                                 <option value="" ${!set.tags.length ? 'selected' : ''}>無備註</option>
                                 <option value="代償" ${set.tags.includes('代償') ? 'selected' : ''}>代償</option>
                                 <option value="力竭" ${set.tags.includes('力竭') ? 'selected' : ''}>力竭</option>
@@ -876,8 +876,10 @@
 
                 container.innerHTML += `
                     <div class="mb-6 bg-slate-800/30 p-3 rounded-2xl border border-slate-700/50 relative">
-                        <button class="absolute top-3 right-3 text-rose-500/70 hover:text-rose-500 p-2 z-[100]" onclick="handleDeleteExercise(${exIdx})"><i class="fa-solid fa-trash-can text-lg"></i></button>
-                        <h3 class="text-white font-bold text-lg leading-tight mb-1 w-[80%]">${ex.name}</h3>
+                        <div class="flex justify-between items-start mb-0.5">
+                            <h3 class="text-white font-bold text-lg leading-tight pr-2">${ex.name}</h3>
+                            <button class="text-rose-500/70 hover:text-rose-500 p-1 -mt-1 -mr-1 shrink-0 z-[100]" onclick="handleDeleteExercise(${exIdx})"><i class="fa-solid fa-trash-can text-lg"></i></button>
+                        </div>
                         ${lastRecordStr}
                         ${setsHtml}
                         <button class="w-full py-2 mt-2 rounded-lg bg-slate-800/50 text-slate-400 text-xs border border-dashed border-slate-600 hover:bg-slate-700 z-50 relative" onclick="handleAddSet(${exIdx})"><i class="fa-solid fa-plus mr-1"></i> 新增一組</button>
@@ -942,25 +944,14 @@
         openAppConfirm(msg, () => {
             let rec = state.history[originalIndex];
             if (tab === 'train') {
-                rec.details =[];
-                rec.volume = 0;
-                rec.isRest = false;
-                rec.note = '';
+                rec.details =[]; rec.volume = 0; rec.isRest = false; rec.note = '';
             } else {
-                rec.meals =[];
-                rec.kcal = 0;
-                rec.protein = 0;
-                rec.carbs = 0;
-                rec.fat = 0;
+                rec.meals =[]; rec.kcal = 0; rec.protein = 0; rec.carbs = 0; rec.fat = 0;
             }
-            
-            // 如果當天的訓練跟飲食都被清空，則整個紀錄從庫中移除
             if ((!rec.details || rec.details.length === 0) && (!rec.meals || rec.meals.length === 0) && rec.kcal === 0 && rec.volume === 0) {
                 state.history.splice(originalIndex, 1);
             }
-            
-            renderHistory();
-            if(chartInstance) updateChartData();
+            renderHistory(); if(chartInstance) updateChartData();
         });
     };
 
@@ -987,14 +978,9 @@
         const isLb = state.settings.unit === 'lb'; const unitLabel = isLb ? 'LB' : 'KG';
         
         let filteredHistory = state.history.slice();
-        
-        // 核心修正：只顯示該頁籤有紀錄的資料 (防呆，如果刪除了只會消失在該頁籤)
         filteredHistory = filteredHistory.filter(r => {
-            if (state.ui.histTab === 'train') {
-                return (r.details && r.details.length > 0) || r.isRest || r.volume > 0;
-            } else {
-                return (r.meals && r.meals.length > 0) || r.kcal > 0;
-            }
+            if (state.ui.histTab === 'train') return (r.details && r.details.length > 0) || r.isRest || r.volume > 0;
+            else return (r.meals && r.meals.length > 0) || r.kcal > 0;
         });
 
         let titleLabel = "全部歷史紀錄";
@@ -1008,27 +994,18 @@
                 activeD.setMonth(activeD.getMonth() + state.ui.histOffset);
                 const y = activeD.getFullYear(); const m = activeD.getMonth();
                 titleLabel = `${y} 年 ${m+1} 月`;
-                filteredHistory = filteredHistory.filter(record => {
-                    const recD = new Date(record.date + "T00:00:00");
-                    return recD.getMonth() === m && recD.getFullYear() === y;
-                });
+                filteredHistory = filteredHistory.filter(record => { const recD = new Date(record.date + "T00:00:00"); return recD.getMonth() === m && recD.getFullYear() === y; });
             } else if (state.ui.histFilter === 'week') {
                 avgTitle = state.ui.histTab === 'train' ? "週平均體重" : "週平均攝取熱量";
                 activeD.setDate(activeD.getDate() + (state.ui.histOffset * 7));
-                const day = activeD.getDay();
-                const diffToMonday = activeD.getDate() - day + (day === 0 ? -6 : 1); 
-                const monday = new Date(activeD.setDate(diffToMonday));
-                const sunday = new Date(monday); sunday.setDate(monday.getDate() + 6);
+                const day = activeD.getDay(); const diffToMonday = activeD.getDate() - day + (day === 0 ? -6 : 1); 
+                const monday = new Date(activeD.setDate(diffToMonday)); const sunday = new Date(monday); sunday.setDate(monday.getDate() + 6);
                 titleLabel = `${formatDate(monday).substring(5).replace('-','/')} - ${formatDate(sunday).substring(5).replace('-','/')}`;
-                filteredHistory = filteredHistory.filter(record => {
-                    const recD = new Date(record.date + "T00:00:00");
-                    return recD >= monday && recD <= sunday;
-                });
+                filteredHistory = filteredHistory.filter(record => { const recD = new Date(record.date + "T00:00:00"); return recD >= monday && recD <= sunday; });
             }
             avgDisplay.classList.remove('hidden'); avgDisplay.classList.add('flex');
             document.getElementById('hist-avg-title').innerText = avgTitle;
             
-            // 計算並顯示平均
             if(filteredHistory.length > 0) {
                 if(state.ui.histTab === 'train') {
                     let currAvg = getAverageWeight(state.ui.histOffset, state.ui.histFilter);
@@ -1042,17 +1019,14 @@
                     }
                     document.getElementById('hist-avg-value').innerHTML = `${currAvg ? currAvg.toFixed(1) : '--'} kg ${diffHtml}`;
                 } else {
-                    let totalK = 0, countK = 0;
-                    filteredHistory.forEach(r => { if(r.kcal > 0) { totalK += r.kcal; countK++; } });
+                    let totalK = 0, countK = 0; filteredHistory.forEach(r => { if(r.kcal > 0) { totalK += r.kcal; countK++; } });
                     document.getElementById('hist-avg-value').innerHTML = countK > 0 ? `${Math.round(totalK/countK)} kcal` : `-- kcal`;
                 }
             } else {
                 if(state.ui.histTab === 'train') document.getElementById('hist-avg-value').innerHTML = `-- kg`;
                 else document.getElementById('hist-avg-value').innerHTML = `-- kcal`;
             }
-        } else {
-            avgDisplay.classList.add('hidden'); avgDisplay.classList.remove('flex');
-        }
+        } else { avgDisplay.classList.add('hidden'); avgDisplay.classList.remove('flex'); }
         
         document.getElementById('hist-date-label').innerText = titleLabel;
 
